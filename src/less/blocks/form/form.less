@@ -1,0 +1,414 @@
+@border-color: #e7e7e7;
+@border-color--hover: @green;
+@invalidColor: #ff8282;
+
+.form {
+	padding-bottom: 34px;
+	text-transform: uppercase;
+	font-size: 16px;
+	font-weight: 400;
+	line-height: 18px;
+	color: #222;
+
+	&__item {
+		margin: 0;
+		padding: 0;
+		border: 0;
+
+		&--catData {
+			padding-bottom: 24px;
+			border-bottom: 1px solid @border-color;
+		}
+		
+		&--catProgram {
+			padding: 22px 0;
+			border-bottom: 1px solid @border-color;
+		}
+	}
+
+	&__title {
+		margin: 30px 0;
+		font-size: 24px;
+		line-height: 24px;
+		text-transform: none;
+	}
+
+	&__textItem {
+		display: flex;
+		align-items: center;
+
+		&--withIcon {
+			position: relative;
+		}
+
+		&:not(:last-child) {
+			margin-bottom: 14px;
+		}
+	}
+
+	&__label {
+		margin-right: 16px;
+		cursor: pointer;
+	}
+
+	&__input {
+		flex-grow: 1;
+		height: 45px;
+		padding-left: 16px;
+		border: 1px solid @border-color;
+		text-transform: uppercase;
+
+		&:hover {
+			border-color: @border-color--hover;
+		}
+
+		&::placeholder {
+			color: #777;
+		}
+
+		&:active, &:focus {
+			outline-color: #444;
+			box-shadow: 0 0 0 1px #444 inset;
+		}
+
+		&:focus ~ .form__icon {
+			fill: @green;
+		}
+
+		&:active:invalid,
+		&:focus:invalid {
+			border-color: @invalidColor;
+			outline-color: @invalidColor;
+			box-shadow: 0 0 0 1px @invalidColor inset;
+
+			~ .form__icon {
+				fill: @invalidColor;
+			}
+		}
+
+		&--withIcon {
+			padding-right: 50px;
+		}
+	}
+
+	&__icon {
+		position: absolute;
+		top: 50%;
+		transform: translateY(-50%);
+		right: 0;
+
+		&--email {
+			right: 17px;
+		}
+
+		&--phone {
+			right: 16px;
+		}
+	}
+
+	&__radioItem {
+		padding: 8px 0;
+		padding-left: 46px;
+		position: relative;
+
+		&:not(:last-child) {
+			margin-bottom: 14px;
+		}
+
+		.form__radio:checked ~ .form__radioLabel::after {
+			opacity: 1;
+		}
+	}
+
+	&__radioLabel {
+		cursor: pointer;
+		position: relative;
+		display: flex;
+		align-items: center;
+		.opacityDown;
+
+		&::before {
+			content: '';
+			display: block;
+			width: 30px;
+			height: 30px;
+			margin-right: 16px;
+			border: 1px solid #cdcdcd;
+			border-radius: 50%;
+		}
+
+		&::after {
+			content: '';
+			display: block;
+			width: 12px;
+			height: 12px;
+			border-radius: 50%;
+			background-color: @green; 
+			position: absolute;
+			left: 10px;
+			top: 10px;
+			opacity: 0;
+		}
+
+		&:hover {
+			&::before {
+				border-color: @border-color--hover;
+			}
+		}
+	}
+
+	&__textarea {
+		width: 100%;
+		min-height: 150px;
+		padding: 15px;
+		border-color: @border-color;
+		box-sizing: border-box;
+		text-transform: uppercase;
+		resize: none;
+
+		&:hover {
+			border-color: @border-color--hover
+		}
+
+		&:focus {
+			outline-color: #444;
+		}
+	}
+
+	&__checkboxList {
+		padding: 0;
+		list-style: none;
+	}
+
+	&__checkboxItem {
+		margin-bottom: 14px;
+		padding-left: 46px;
+		padding: 8px 0;
+		padding-left: 46px;
+		position: relative;
+
+		.form__checkbox:checked ~ .form__checkboxLabel::after {
+			content: '';
+			display: block;
+			width: 21px;
+			height: 16px;
+			background: url(../img/form/checkMark.svg); 
+			position: absolute;
+			left: 5px;
+			top: 7px;
+		}
+	}
+
+	&__checkboxLabel {
+		display: flex;
+		align-items: center;
+		position: relative;
+		.opacityDown;
+
+		&::before {
+			content: '';
+			display: block;
+			width: 30px;
+			height: 30px;
+			margin-right: 16px;
+			border: 1px solid #cdcdcd;
+		}
+
+		&:hover {
+			&::before {
+				border-color: @border-color--hover;
+			}
+		}
+	}
+
+	&__submit {
+		margin-top: 34px;
+	}
+
+	&__caption {
+		margin-top: 24px;
+		text-align: center;
+		text-transform: none;
+		font-size: 14px;
+	}
+
+}
+
+@media (min-width: @tabletWidth) {
+	.form {
+		padding-bottom: 72px;
+		font-size: 20px;
+		line-height: 20px;
+
+		&__item {
+			border: 0;
+
+			&--catData {
+				padding: 0;
+			}
+
+			&--catProgram {
+				margin-top: 72px;
+				padding-left: 28px;
+				border: 1px solid  @border-color;
+			}
+		}
+
+		&__title {
+			margin: 70px 0;
+			font-size: 35px;
+			line-height: 36px;
+
+			br {
+				display: none;
+			}
+		}
+
+		&__textItem {
+			&:not(:last-child) {
+				margin-bottom: 20px;
+			}
+		}
+
+		&__input {
+			height: 52px;
+			padding-left: 20px;
+		}
+
+		&__radioItem {
+			padding: 0;
+
+			.form__radio:checked ~ .form__radioLabel::after {
+				width: 18px;
+				height: 18px;
+				left: 12px;
+				top: 12px;
+			}
+		}
+
+		&__radioLabel {
+			&::before {
+				width: 40px;
+				height: 40px;
+			}
+		}
+
+		&__textarea {
+			min-height: 174px;
+			padding: 18px 20px;
+		}
+
+		&__checkboxList {
+			display: flex;
+			flex-wrap: wrap;
+			margin: 0;
+		}
+
+		&__checkboxItem {
+			margin-bottom: 32px;
+			padding: 11px 0;
+			padding-left: 60px;
+			width: 230px;
+			word-wrap: break-word;
+
+			&:nth-child(2n) {
+				margin-left: 45px;
+			}
+
+			.form__checkbox:checked ~ .form__checkboxLabel::after {
+				width: 21px;
+				height: 16px;
+				left: 10px;
+				top: 12px;
+			}
+		}
+
+		&__checkboxLabel {
+			&::before {
+				width: 40px;
+				height: 40px;
+			}
+		}
+
+		&__submit {
+			display: flex;
+			align-items: center;
+		}
+
+		&__btn {
+			width: 284px;
+			height: 52px;
+		}
+
+		&__caption {
+			margin: 0;
+			margin-left: 60px;
+			font-size: 16px;
+		}
+
+	}
+}
+
+@media (min-width: @dekstopWidth) {
+	.form {
+		@width: 568px;
+
+		padding-bottom: 82px;
+
+		&__catOptions {
+			display: flex;
+			justify-content: space-between;
+		}
+
+		&__title {
+			font-size: 35px;
+		}
+
+		&__item {
+
+			&--catData {
+				width: @width;
+			}
+
+			&--catProgram {
+				width: @width;
+				margin: 0;
+			}
+		}
+
+		&__textItem {
+			width: @width;
+		}
+
+		&__contactList {
+			display: flex;
+			justify-content: space-between;
+			align-items: flex-start;
+			margin: 0;
+			margin-bottom: -20px;
+			padding: 0;
+			list-style: none;
+		}
+
+		&__checkboxList {
+			margin-bottom: -32px;
+			justify-content: space-between;
+		}
+
+		&__checkboxItem {
+			padding: 0;
+		}
+
+		&__submit {
+			margin-top: 60px;
+		}
+
+		&__btn {
+			width: @width;
+		}
+
+		&__caption {
+			margin-left: 82px;
+		}
+	}
+}

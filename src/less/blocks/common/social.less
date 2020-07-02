@@ -1,0 +1,30 @@
+.social {
+	display: flex;
+	justify-content: center;
+	padding: 0;
+	margin: 0;
+
+	&__item {
+		.opacityDown;
+
+		list-style: none;
+		margin: 0 17px;
+
+		a {
+			display: flex;
+			align-items: center;
+			height: 20px;
+		}
+	}
+}
+
+@media (min-width: @tabletWidth) {
+	.social {
+		&__item {
+			a {
+				height: 28px;
+			}
+		}
+	}
+}
+

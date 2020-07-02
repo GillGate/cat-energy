@@ -1,0 +1,41 @@
+.header {
+	&__head {
+		background: #fff;
+	}
+
+	&__title {
+		padding-top: 30px;
+	}
+}
+
+@media (min-width: @tabletWidth) {
+	.header {
+		&__head {
+			padding-top: 48px;
+		}
+
+		&__logo {
+			margin: 0;
+		}
+
+		&__title {
+			margin-top: 62px;
+		}
+	}
+}
+
+@media (min-width: @dekstopWidth) {
+	.header {
+
+		&--index {
+			background: linear-gradient(to right, #fff 0, #fff 60%, @green 60%, @green 100%);
+			background: url(../img/index/index-bg-desktop@1x.jpg) no-repeat right bottom;
+		}
+
+		&__head {
+			background: 0;
+			padding-top: 78px;
+		}
+
+	}
+}
